@@ -66,7 +66,7 @@ This workshop teaches the four-phase workflow of spec-driven development:
 
 ## 🤝 Contributing
 
-Suggestions and improvements welcome! See [tweak.md](./tweak.md) for enhancement ideas.
+Suggestions and improvements welcome! Feel free to open an issue or pull request.
 
 ## 📄 License
 

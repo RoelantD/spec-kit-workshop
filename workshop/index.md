@@ -165,7 +165,6 @@ Review what you've learned and plan your journey to mastering spec-driven develo
 - 📖 [GitHub Spec Kit Repository](https://github.com/github/spec-kit) - Official toolkit source code
 - 📝 [Microsoft Dev Blog](https://developer.microsoft.com/blog/spec-driven-development-spec-kit) - Introduction to SDD
 - 🎯 [GitHub Blog Post](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) - Getting started guide
-- 💡 [Workshop Improvements](/tweak) - Enhancement suggestions and tweaks
 
 ---
 
