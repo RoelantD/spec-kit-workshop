@@ -1,0 +1,35 @@
+/* Fix title spacing and layout */
+.vp-doc h1 {
+  margin-top: 2rem !important;
+}
+
+/* Ensure proper spacing after navbar */
+.VPContent {
+  padding-top: var(--vp-nav-height);
+}
+
+/* Additional spacing for first heading */
+.vp-doc > h1:first-child {
+  margin-top: 3rem !important;
+}
+
+/* Task list checkbox styling */
+.vp-doc ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.vp-doc .task-list-item {
+  list-style-type: none;
+}
+
+.vp-doc .task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Alternative styling for checkboxes if not rendering */
+.vp-doc li > input[type="checkbox"]:first-child {
+  margin-right: 0.5rem;
+  margin-left: -1.5rem;
+}

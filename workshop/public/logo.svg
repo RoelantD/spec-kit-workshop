@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="#5f67ee" opacity="0.1"/>
+  
+  <!-- Document Icon (Spec) -->
+  <rect x="60" y="50" width="80" height="100" rx="5" fill="#5f67ee" opacity="0.8"/>
+  <rect x="70" y="65" width="60" height="4" rx="2" fill="white"/>
+  <rect x="70" y="75" width="60" height="4" rx="2" fill="white"/>
+  <rect x="70" y="85" width="45" height="4" rx="2" fill="white"/>
+  <rect x="70" y="100" width="60" height="4" rx="2" fill="white"/>
+  <rect x="70" y="110" width="50" height="4" rx="2" fill="white"/>
+  <rect x="70" y="120" width="55" height="4" rx="2" fill="white"/>
+  
+  <!-- Arrow (Transformation) -->
+  <path d="M 140 95 L 165 95 L 160 90 M 165 95 L 160 100" 
+        stroke="#5f67ee" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Gear Icon (Implementation) -->
+  <circle cx="180" cy="95" r="15" fill="none" stroke="#5f67ee" stroke-width="3"/>
+  <circle cx="180" cy="95" r="8" fill="#5f67ee"/>
+  
+  <!-- AI Sparkle -->
+  <path d="M 155 70 L 158 75 L 163 78 L 158 81 L 155 86 L 152 81 L 147 78 L 152 75 Z" 
+        fill="#fbbf24" opacity="0.9"/>
+  <path d="M 175 60 L 177 63 L 180 65 L 177 67 L 175 70 L 173 67 L 170 65 L 173 63 Z" 
+        fill="#fbbf24" opacity="0.9"/>
+</svg>
