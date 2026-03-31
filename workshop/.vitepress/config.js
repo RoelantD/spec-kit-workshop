@@ -61,6 +61,7 @@ export default defineConfig({
             items: [
               { text: 'Supported AI Agents', link: '/01-setup-prerequisites#supported-ai-agents-choose-one' },
               { text: 'Option A: GitHub Codespaces', link: '/01-setup-prerequisites#option-a-use-github-codespaces-recommended-for-beginners' },
+              { text: 'Option B: Local Setup', link: '/01-setup-prerequisites#option-b-local-setup' },
               { text: 'Install Python & uv', link: '/01-setup-prerequisites#step-1-install-python-and-uv' },
               { text: 'Install Spec Kit CLI', link: '/01-setup-prerequisites#step-2-install-spec-kit-cli' },
               { text: 'Initialize Your Project', link: '/01-setup-prerequisites#step-4-initialize-your-first-project' },

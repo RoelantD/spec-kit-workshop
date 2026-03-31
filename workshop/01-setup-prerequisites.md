@@ -68,6 +68,12 @@ Note: You will still need to install your AI agent of choice inside the codespac
 
 ---
 
+## Option B: Local Setup
+
+If you prefer to work on your own machine, follow the steps below to install the required tools.
+
+---
+
 ## Step 1: Install Python and uv
 
 > Skip this step if you are using Codespaces.
