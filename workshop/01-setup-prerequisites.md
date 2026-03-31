@@ -50,13 +50,18 @@ Spec Kit supports 20+ AI agents. Run `specify init --help` after installation to
 
 ## Option A: Use GitHub Codespaces (Recommended for Beginners)
 
+::: warning Fork first before creating a Codespace
+Codespaces created directly on someone else's repository are read-only — you won't be able to commit or push your work. Always fork the repository first so your progress is saved to your own copy.
+:::
+
 ::: tip Optional - Use Codespaces to skip local setup
 If you prefer not to install anything locally, GitHub Codespaces gives you a fully configured cloud environment with Python 3.11+, uv, specify-cli, and Node.js already set up.
 
-1. Open the workshop repository on GitHub
-2. Click **"Use this template"** → **"Open in a codespace"**
-3. Wait approximately 2 minutes for the environment to initialize
-4. You are ready to go — skip directly to [Step 4: Initialize Your First Project](#step-4-initialize-your-first-project)
+1. **Fork the repository** — Go to [https://github.com/RoelantD/spec-kit-workshop](https://github.com/RoelantD/spec-kit-workshop) and click **Fork** (top-right). This creates your own copy to work in.
+2. Open **your forked repository** on GitHub
+3. Click the green **"Code"** button → **"Codespaces"** tab → **"Create codespace on main"**
+4. Wait approximately 2 minutes for the environment to initialize
+5. You are ready to go — skip directly to [Step 4: Initialize Your First Project](#step-4-initialize-your-first-project)
 
 Note: You will still need to install your AI agent of choice inside the codespace (for example, run `npm install -g @anthropic-ai/claude-code` for Claude Code).
 :::
