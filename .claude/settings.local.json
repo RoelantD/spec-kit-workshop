@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /d/Development/repos/spec-kit-workshop/workshop/*.md)",
+      "Skill(tavily-extract)",
+      "Skill(tavily-extract:*)",
+      "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
+      "Bash(grep -n '`/specify`\\\\|`/plan`\\\\|`/tasks`\\\\|\"\"/specify\"\"\\\\|\"\"/plan\"\"\\\\|\"\"/tasks\"\"' \"D:/Development/repos/spec-kit-workshop/workshop/06-implement-phase.md\" \"D:/Development/repos/spec-kit-workshop/workshop/07-best-practices.md\" \"D:/Development/repos/spec-kit-workshop/workshop/08-wrapup.md\")",
+      "Bash(npm run:*)",
+      "Bash(grep -rn \"\\\\/specify\\\\b\\\\|\\\\/plan\\\\b\\\\|\\\\/tasks\\\\b\" workshop/*.md --include=\"*.md\")",
+      "Bash(grep -rn \"/01-introduction\\\\|01-introduction\" *.md)",
+      "Bash(grep -rn \"/02-setup-prerequisites\\\\|02-setup-prerequisites\" *.md)",
+      "Bash(grep -rn \"01-introduction\" *.md)",
+      "Bash(grep -rn \"02-setup-prerequisites\" *.md)",
+      "Bash(grep -rn \"\\\\./0\" *.md)"
+    ]
+  }
+}

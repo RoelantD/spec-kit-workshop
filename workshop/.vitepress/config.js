@@ -6,6 +6,7 @@ export default defineConfig({
   title: "Spec-Driven Development Workshop",
   description: "A hands-on workshop for building your first spec-driven project with GitHub's Spec Kit toolkit",
   base: '/spec-kit-workshop/',
+  cleanUrls: true,
   
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
