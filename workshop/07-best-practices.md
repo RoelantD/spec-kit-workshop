@@ -18,6 +18,40 @@ By the end of this chapter, you will:
 
 ---
 
+## The Constitutional Foundation
+
+At the heart of SDD lies a constitution — a set of immutable principles that govern how specifications become code. The constitution defines nine articles that shape every aspect of development:
+
+- **Article I: Library-First** — Every feature begins as a standalone library
+- **Article II: CLI Interface** — Every library exposes CLI interfaces
+- **Article III: Test-First** — No implementation code before tests are written, validated, and confirmed to fail (Red phase)
+- **Articles VII & VIII: Simplicity & Anti-Abstraction** — Maximum 3 projects for initial implementation; use framework features directly
+- **Article IX: Integration-First** — Prefer real databases over mocks, actual service instances over stubs
+
+Your constitution is stored in `.specify/memory/constitution.md` and is referenced by every subsequent command.
+
+Run `/speckit.constitution` before `/speckit.specify` to establish your project's principles. Every subsequent planning and implementation step reads and enforces the constitution automatically.
+
+---
+
+## Optional Commands for Quality Assurance
+
+Spec Kit includes optional commands that improve quality and reduce rework. They slot into the workflow between the core phases:
+
+### `/speckit.clarify`
+
+Run before `/speckit.plan` to resolve ambiguities through structured questioning. The command surfaces unclear requirements and asks targeted questions so that the plan accurately reflects your intent. Reduces rework caused by misunderstood specs. Formerly known as `/quizme`.
+
+### `/speckit.analyze`
+
+Run after `/speckit.tasks`, before `/speckit.implement`. Performs cross-artifact consistency and coverage analysis — catching contradictions and gaps between your spec, plan, tasks, and contracts before any code is written.
+
+### `/speckit.checklist`
+
+Generates custom quality checklists that validate requirements completeness, clarity, and consistency. Think of it as "unit tests for English" — a structured way to verify your written artifacts before committing to implementation.
+
+---
+
 ## Best Practices by Phase
 
 ### Phase 1: Specification Best Practices
@@ -172,10 +206,6 @@ Don't add security as an afterthought:
 - User experience
 - Visual testing
 - Cross-browser compatibility
-```
-- User experience
-- Cross-platform verification
-```
 
 ---
 
@@ -415,17 +445,51 @@ STOP and validate after each phase:
 ### Pitfall 6: Ignoring the Constitution
 
 **Problem:**
-Constitution says "All code must have tests"  
-→ You skip tests to move faster  
-→ Bugs accumulate  
+Constitution says "All code must have tests"
+→ You skip tests to move faster
+→ Bugs accumulate
 → Refactoring becomes scary
 
 **Solution:**
 Treat constitution as non-negotiable. If you can't follow it, update it—but be intentional.
 
+Use `/speckit.constitution` to establish and update your project principles. The command stores them in `.specify/memory/constitution.md`, where every subsequent `/speckit.plan` run will read and enforce them automatically. This means your constitution isn't just a document—it's a gate that the planning command checks on every run.
+
 ---
 
-### Pitfall 7: AI Over-Reliance
+### Pitfall 7: Skipping `/speckit.constitution`
+
+**Problem:**
+You jump straight to `/speckit.specify` without establishing your project principles first.
+
+```
+No constitution → spec runs without governance
+→ Plan may conflict with your standards
+→ Tasks lack quality gates
+```
+
+**Solution:**
+Always run `/speckit.constitution` before `/speckit.specify`. The constitution is the foundation every subsequent command builds on. Without it, spec-kit cannot enforce your architectural principles, testing requirements, or quality standards automatically.
+
+---
+
+### Pitfall 8: Not Running `/speckit.clarify`
+
+**Problem:**
+You go from `/speckit.specify` directly to `/speckit.plan` without checking for ambiguities.
+
+```
+Ambiguous spec → Plan based on AI's best guess
+→ Tasks don't match your intent
+→ Implementation requires significant rework
+```
+
+**Solution:**
+Run `/speckit.clarify` after specification to surface and resolve unclear requirements before the plan is written. It takes a few minutes and pays back multiples in avoided rework.
+
+---
+
+### Pitfall 9: AI Over-Reliance
 
 **Problem:**
 You accept every AI suggestion without thinking.
@@ -441,7 +505,7 @@ AI is a tool, not an oracle. You must:
 
 ---
 
-### Pitfall 8: Premature Optimization
+### Pitfall 10: Premature Optimization
 
 **Problem:**
 ```
@@ -875,11 +939,11 @@ You have all the knowledge needed to:
 - Help others learn SDD
 
 ::: tip Final Chapter
-Continue to [Chapter 8: Workshop Wrap-up](./08-wrapup.md) 
+Continue to [Chapter 8: Workshop Wrap-up](./08-wrapup) 
 :::
 
 ---
 
-**Next**: [Chapter 8: Workshop Wrap-up & Next Steps →](./08-wrapup.md)
+**Next**: [Chapter 8: Workshop Wrap-up & Next Steps →](./08-wrapup)
 
-**Previous**: [← Chapter 6: The Implementation Phase](./06-implement-phase.md)
+**Previous**: [← Chapter 6: The Implementation Phase](./06-implement-phase)

@@ -11,12 +11,22 @@ Congratulations on completing the Spec-Driven Development workshop! Let's recap 
 
 Over the past 60-90 minutes, you've learned an entirely new way to develop software with AI:
 
-### The Four-Phase Workflow
+### The Full SDD Workflow
+
+✅ **Phase 0: Constitution** - Establish governing principles
+- Defined your project's immutable standards
+- Stored in `.specify/memory/constitution.md`
+- Referenced by every subsequent command
 
 ✅ **Phase 1: Specify** - Define WHAT and WHY
 - Created user-focused specifications
-- Documented user journeys and success criteria  
+- Documented user journeys and success criteria
 - Stayed technology-agnostic
+
+✅ **Step: Clarify (recommended)** - Resolve ambiguities
+- Surfaced unclear requirements through structured questions
+- Ensured the plan accurately reflects your intent
+- Reduced rework before a line of planning was written
 
 ✅ **Phase 2: Plan** - Define HOW
 - Made technical architecture decisions
@@ -29,7 +39,7 @@ Over the past 60-90 minutes, you've learned an entirely new way to develop softw
 - Identified dependencies
 
 ✅ **Phase 4: Implement** - Build it
-- Worked with AI agents to generate code
+- Used `/speckit.implement` to automate task execution
 - Reviewed and validated implementations
 - Tested against acceptance criteria
 
@@ -75,7 +85,15 @@ Spec ✓ → Plan ✓ → Tasks ✓ → Implement ✓
 
 Each validation saves future rework.
 
-### 4. Your Role Shifts from Coder to Architect
+### 4. Constitution is the Foundation
+
+Every SDD project starts with a constitution — immutable principles that govern how specs become code. Run `/speckit.constitution` before anything else. The constitution is not just a document; it's a gate that every subsequent command checks automatically.
+
+### 5. `/speckit.implement` Automates Execution
+
+Once your tasks are ready, you don't have to implement them one by one manually. `/speckit.implement` reads `tasks.md`, respects dependencies and parallel markers, and drives the AI agent through the full task list in the correct order.
+
+### 6. Your Role Shifts from Coder to Architect
 
 **Old role:** Write every line of code yourself
 
@@ -83,7 +101,7 @@ Each validation saves future rework.
 
 You're the architect. AI is your implementation partner.
 
-### 5. Living Documentation Stays Current
+### 7. Living Documentation Stays Current
 
 Because specs drive implementation, they stay synchronized:
 
@@ -99,6 +117,35 @@ The spec never becomes stale.
 
 Let's review the complete workflow one more time:
 
+### The Complete Command Sequence
+
+```bash
+specify init my-project --ai claude   # Initialize project
+/speckit.constitution                  # Establish principles
+/speckit.specify                       # Create specification
+/speckit.clarify                       # Clarify ambiguities (recommended)
+/speckit.plan                          # Technical implementation plan
+/speckit.tasks                         # Generate task breakdown
+/speckit.analyze                       # Optional: cross-artifact check
+/speckit.implement                     # Execute all tasks
+```
+
+---
+
+### Phase 0: Constitution (5 minutes)
+
+**What you do:**
+1. Use `/speckit.constitution` command
+2. Define your project's governing principles
+3. Review the nine articles and adjust for your project
+4. Constitution is saved to `.specify/memory/constitution.md`
+
+**Key principle:** Establish standards before writing a single requirement
+
+**Validation:** Does the constitution capture your non-negotiable quality standards?
+
+---
+
 ### Phase 1: Specify (10-15 minutes)
 
 **What you do:**
@@ -111,6 +158,20 @@ Let's review the complete workflow one more time:
 **Key principle:** Stay user-focused, technology-agnostic
 
 **Validation:** Can a stranger understand what you're building and why?
+
+---
+
+### Step: Clarify (5-10 minutes, recommended)
+
+**What you do:**
+1. Use `/speckit.clarify` command
+2. Answer the structured questions about ambiguous requirements
+3. Review the clarified specification
+4. Confirm all intent is accurately captured
+
+**Key principle:** Resolve ambiguity before it becomes architecture
+
+**Validation:** Are all requirements unambiguous and testable?
 
 ---
 
@@ -147,12 +208,11 @@ Let's review the complete workflow one more time:
 ### Phase 4: Implement (Ongoing)
 
 **What you do:**
-1. Select next task (respect dependencies)
-2. Provide task to AI agent
-3. Review generated code
-4. Run tests
-5. Validate acceptance criteria
-6. Commit and move to next task
+1. Run `/speckit.implement` to execute all tasks automatically
+2. Review generated code as tasks complete
+3. Run tests and validate acceptance criteria
+4. Resolve any runtime errors flagged after implementation
+5. Commit and iterate
 
 **Key principle:** Trust but verify
 
@@ -241,11 +301,20 @@ cat specs/tasks.md
 
 **2. Apply SDD to a Real Project**
 
-Choose a small work or personal project:
-- Write a spec (15 minutes)
-- Generate a plan (15 minutes)
-- Create tasks (15 minutes)
-- Start implementing
+Choose a small work or personal project and practice the full workflow:
+- Run `/speckit.constitution` to establish principles (5 minutes)
+- Write a spec with `/speckit.specify` (15 minutes)
+- Clarify with `/speckit.clarify` (5-10 minutes)
+- Generate a plan with `/speckit.plan` (15 minutes)
+- Create tasks with `/speckit.tasks` (15 minutes)
+- Run `/speckit.implement` to execute
+
+**2a. Explore the Optional Commands**
+
+Once you're comfortable with the core flow:
+- Try `/speckit.clarify` to see how it surfaces ambiguities
+- Run `/speckit.analyze` after tasks to catch cross-artifact gaps
+- Use `/speckit.checklist` to validate your written artifacts
 
 **3. Customize Your Templates**
 
@@ -352,6 +421,11 @@ Help improve the ecosystem:
 - Issues and discussions
 - Latest releases
 
+**Spec-Driven Development Guide**
+- https://github.com/github/spec-kit/blob/main/spec-driven.md
+- The complete SDD methodology, including the nine articles of the constitution
+- Reference for understanding the principles behind every command
+
 **Blog Posts**
 - [Microsoft Dev Blog: Spec-Driven Development](https://developer.microsoft.com/blog/spec-driven-development-spec-kit)
 - [GitHub Blog: Spec-Driven Development with AI](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/)
@@ -372,7 +446,7 @@ Help improve the ecosystem:
 
 ## Common Questions
 
-### "Do I need all four phases every time?"
+### "Do I need all phases every time?"
 
 **Short answer:** For best results, yes.
 
@@ -384,11 +458,14 @@ Help improve the ecosystem:
 
 ### "What if my team doesn't use GitHub Copilot?"
 
-**No problem!** Spec Kit works with:
-- GitHub Copilot (what we used today)
-- Claude Code (Anthropic)
-- Gemini CLI (Google)
-- Any AI agent that can follow prompts
+**No problem!** Spec Kit works with many AI agents. Pass `--ai <agent>` to `specify init`:
+
+- `--ai copilot` — GitHub Copilot
+- `--ai claude` — Claude Code (Anthropic)
+- `--ai gemini` — Gemini CLI (Google)
+- `--ai cursor-agent` — Cursor
+- `--ai windsurf` — Windsurf
+- And 20+ more
 
 The principles apply regardless of which AI tool you use.
 
@@ -469,7 +546,7 @@ Scale SDD across teams:
 ### How to Know You're Getting Better
 
 **Week 1:**
-- [ ] You remember the four phases
+- [ ] You remember the phases of the SDD workflow
 - [ ] You write specs before coding
 - [ ] You validate at checkpoints
 
@@ -511,7 +588,8 @@ Scale SDD across teams:
 
 You've learned:
 - ✅ What spec-driven development is and why it matters
-- ✅ The four-phase workflow (Specify → Plan → Tasks → Implement)
+- ✅ The full workflow: constitution → specify → clarify → plan → tasks → implement
+- ✅ How `/speckit.implement` automates task execution
 - ✅ How to work effectively with AI coding agents
 - ✅ Best practices and common pitfalls
 - ✅ How to scale SDD to larger projects
@@ -590,12 +668,14 @@ The best way to learn is by doing. Take what you've learned today and start appl
 
 Before you go, verify you've got everything:
 
-- [ ] ✅ Understand the four phases of SDD
+- [ ] ✅ Understand all phases of the SDD workflow
 - [ ] ✅ Have GitHub Spec Kit installed and configured
-- [ ] ✅ Created your first specification
-- [ ] ✅ Generated a technical plan
-- [ ] ✅ Broke down a plan into tasks
-- [ ] ✅ Implemented at least one task with AI
+- [ ] ✅ Ran `/speckit.constitution` to establish principles
+- [ ] ✅ Created your first specification with `/speckit.specify`
+- [ ] ✅ Clarified ambiguities with `/speckit.clarify`
+- [ ] ✅ Generated a technical plan with `/speckit.plan`
+- [ ] ✅ Created tasks with `/speckit.tasks`
+- [ ] ✅ Implemented with `/speckit.implement` (or manually)
 - [ ] ✅ Know where to find additional resources
 - [ ] ✅ Have ideas for applying SDD to your work
 - [ ] ✅ Saved/bookmarked this workshop for reference
@@ -623,27 +703,37 @@ Now go build something amazing! 🚀
 
 Save this for later:
 
-### The Four Commands
+### The Full Command Sequence
 
 ```bash
-/speckit.specify  # Create specification (WHAT & WHY)
-/speckit.plan     # Create technical plan (HOW)  
-/speckit.tasks    # Break into implementable tasks
-# Then implement with your AI agent
+specify init my-project --ai claude   # Initialize project
+/speckit.constitution                  # Establish principles (step 0)
+/speckit.specify                       # Create specification (WHAT & WHY)
+/speckit.clarify                       # Clarify ambiguities (recommended)
+/speckit.plan                          # Create technical plan (HOW)
+/speckit.tasks                         # Break into implementable tasks
+/speckit.analyze                       # Optional: cross-artifact check
+/speckit.implement                     # Execute all tasks
 ```
 
 ### The Validation Questions
 
-**After /specify:**
+**After /speckit.constitution:**
+- Do your principles cover quality, testing, and architecture?
+
+**After /speckit.specify:**
 - Can a stranger understand what you're building?
 
-**After /plan:**
+**After /speckit.clarify:**
+- Are all requirements unambiguous and testable?
+
+**After /speckit.plan:**
 - Could a developer implement this?
 
-**After /tasks:**
+**After /speckit.tasks:**
 - Are all tasks 1-3 hours with clear criteria?
 
-**After implementation:**
+**After /speckit.implement:**
 - Do all acceptance criteria pass?
 
 ### Key Files
@@ -669,6 +759,6 @@ specs/
 
 **Workshop Complete!** 🎓
 
-**Previous**: [← Chapter 7: Best Practices](./07-best-practices.md)
+**Previous**: [← Chapter 7: Best Practices](./07-best-practices)
 
-**Start Over**: [→ Chapter 1: Introduction](./01-introduction.md)
+**Start Over**: [→ Chapter 0: Introduction](./00-introduction)

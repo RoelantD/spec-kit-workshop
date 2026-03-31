@@ -14,8 +14,8 @@ export default defineConfig({
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:title', content: 'Spec-Driven Development Workshop' }],
     ['meta', { property: 'og:site_name', content: 'SDD Workshop' }],
-    ['meta', { property: 'og:image', content: 'https://spec-kit-workshop.github.io/og-image.png' }],
-    ['meta', { property: 'og:url', content: 'https://spec-kit-workshop.github.io/' }],
+    ['meta', { property: 'og:image', content: 'https://roelantvos.github.io/spec-kit-workshop/og-image.png' }],
+    ['meta', { property: 'og:url', content: 'https://roelantvos.github.io/spec-kit-workshop/' }],
   ],
 
   themeConfig: {
@@ -26,7 +26,7 @@ export default defineConfig({
     
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Workshop', link: '/01-introduction' },
+      { text: 'Workshop', link: '/00-introduction' },
       { 
         text: 'Resources',
         items: [
@@ -42,71 +42,86 @@ export default defineConfig({
         text: '📚 Workshop Chapters',
         collapsed: false,
         items: [
-          { 
-            text: '1️⃣ Introduction to SDD', 
-            link: '/01-introduction',
+          {
+            text: '0️⃣ Introduction to SDD',
+            link: '/00-introduction',
             collapsed: false,
             items: [
-              { text: 'What is SDD?', link: '/01-introduction#what-is-spec-driven-development' },
-              { text: 'The Problem with Vibe-Coding', link: '/01-introduction#the-problem-with-vibe-coding' },
-              { text: 'Four Phases', link: '/01-introduction#the-four-phases-of-spec-driven-development' }
+              { text: 'The Power Inversion', link: '/00-introduction#the-power-inversion' },
+              { text: 'What is SDD?', link: '/00-introduction#what-is-spec-driven-development' },
+              { text: 'The SDD Workflow', link: '/00-introduction#the-sdd-workflow-five-phases' },
+              { text: 'Why AI Needs Specs', link: '/00-introduction#why-specs-matter-with-ai-agents' }
             ]
           },
-          { 
-            text: '2️⃣ Setup & Prerequisites', 
-            link: '/02-setup-prerequisites',
+          {
+            text: '1️⃣ Setup & Prerequisites',
+            link: '/01-setup-prerequisites',
             collapsed: true,
             items: [
-              { text: 'Install VS Code', link: '/02-setup-prerequisites#step-1-install-visual-studio-code' },
-              { text: 'Install Python & uvx', link: '/02-setup-prerequisites#step-2-install-python-and-uvx' },
-              { text: 'Setup GitHub Copilot', link: '/02-setup-prerequisites#step-3-set-up-github-copilot' },
-              { text: 'Install Spec Kit', link: '/02-setup-prerequisites#step-4-install-github-spec-kit' },
-              { text: 'Initialize Project', link: '/02-setup-prerequisites#step-5-initialize-your-first-project' }
+              { text: 'Supported AI Agents', link: '/01-setup-prerequisites#supported-ai-agents-choose-one' },
+              { text: 'Option A: GitHub Codespaces', link: '/01-setup-prerequisites#option-a-use-github-codespaces-recommended-for-beginners' },
+              { text: 'Install Python & uv', link: '/01-setup-prerequisites#step-1-install-python-and-uv' },
+              { text: 'Install Spec Kit CLI', link: '/01-setup-prerequisites#step-2-install-spec-kit-cli' },
+              { text: 'Initialize Your Project', link: '/01-setup-prerequisites#step-4-initialize-your-first-project' },
+              { text: 'Choose Your Project', link: '/01-setup-prerequisites#step-5-choose-your-workshop-project' }
             ]
           },
-          { 
-            text: '3️⃣ The Specify Phase', 
+          {
+            text: '2️⃣ The Constitution Phase',
+            link: '/02-constitution-phase',
+            collapsed: true,
+            items: [
+              { text: 'What is a Constitution?', link: '/02-constitution-phase#what-is-a-project-constitution' },
+              { text: 'Creating Your Constitution', link: '/02-constitution-phase#creating-your-constitution' },
+              { text: 'Hands-On Exercise', link: '/02-constitution-phase#hands-on-exercise' }
+            ]
+          },
+          {
+            text: '3️⃣ The Specify Phase',
             link: '/03-specify-phase',
             collapsed: true,
             items: [
               { text: 'What Belongs in a Spec', link: '/03-specify-phase#what-belongs-in-a-specification' },
-              { text: 'Using /specify', link: '/03-specify-phase#using-the-specify-command' },
+              { text: 'Using /speckit.specify', link: '/03-specify-phase#using-the-speckit-specify-command' },
+              { text: 'Clarify with /speckit.clarify', link: '/03-specify-phase#clarifying-your-specification' },
               { text: 'Hands-On Exercise', link: '/03-specify-phase#hands-on-creating-your-specification' }
             ]
           },
-          { 
-            text: '4️⃣ The Plan Phase', 
+          {
+            text: '4️⃣ The Plan Phase',
             link: '/04-plan-phase',
             collapsed: true,
             items: [
-              { text: 'What is a Plan?', link: '/04-plan-phase#understanding-technical-planning' },
-              { text: 'Using /plan', link: '/04-plan-phase#using-the-plan-command' },
+              { text: 'What is a Plan?', link: '/04-plan-phase#understanding-the-plan-phase' },
+              { text: 'Using /speckit.plan', link: '/04-plan-phase#using-the-speckit-plan-command' },
+              { text: 'Validate Your Plan', link: '/04-plan-phase#step-5-validate-your-plan' },
               { text: 'Hands-On Exercise', link: '/04-plan-phase#hands-on-creating-your-technical-plan' }
             ]
           },
-          { 
-            text: '5️⃣ The Tasks Phase', 
+          {
+            text: '5️⃣ The Tasks Phase',
             link: '/05-tasks-phase',
             collapsed: true,
             items: [
-              { text: 'Breaking Down Work', link: '/05-tasks-phase#understanding-task-breakdown' },
-              { text: 'Using /tasks', link: '/05-tasks-phase#using-the-tasks-command' },
+              { text: 'Breaking Down Work', link: '/05-tasks-phase#understanding-the-tasks-phase' },
+              { text: 'Using /speckit.tasks', link: '/05-tasks-phase#using-the-speckit-tasks-command' },
+              { text: 'Analyze with /speckit.analyze', link: '/05-tasks-phase#optional-cross-artifact-analysis-with-speckit-analyze' },
               { text: 'Hands-On Exercise', link: '/05-tasks-phase#hands-on-creating-your-task-list' }
             ]
           },
-          { 
-            text: '6️⃣ The Implementation Phase', 
+          {
+            text: '6️⃣ The Implementation Phase',
             link: '/06-implement-phase',
             collapsed: true,
             items: [
+              { text: 'Using /speckit.implement', link: '/06-implement-phase#using-speckit-implement' },
               { text: 'Implementation Workflow', link: '/06-implement-phase#the-implementation-workflow' },
-              { text: 'Working with AI', link: '/06-implement-phase#understanding-implementation-with-ai' },
               { text: 'Code Review', link: '/06-implement-phase#reviewing-ai-generated-code' },
               { text: 'Hands-On Exercise', link: '/06-implement-phase#hands-on-implement-your-first-tasks' }
             ]
           },
-          { 
-            text: '7️⃣ Best Practices', 
+          {
+            text: '7️⃣ Best Practices',
             link: '/07-best-practices',
             collapsed: true,
             items: [
@@ -116,8 +131,8 @@ export default defineConfig({
               { text: 'Team Collaboration', link: '/07-best-practices#team-collaboration' }
             ]
           },
-          { 
-            text: '8️⃣ Wrap-up & Next Steps', 
+          {
+            text: '8️⃣ Wrap-up & Next Steps',
             link: '/08-wrapup',
             collapsed: true,
             items: [
@@ -127,14 +142,6 @@ export default defineConfig({
               { text: 'Resources', link: '/08-wrapup#resources-for-continued-learning' }
             ]
           }
-        ]
-      },
-      {
-        text: '🔧 Additional Resources',
-        collapsed: true,
-        items: [
-          { text: 'Improvement Suggestions', link: '/tweak' },
-          { text: 'Specifications', link: '/specification/' }
         ]
       }
     ],
@@ -161,7 +168,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/your-username/spec-kit-workshop/edit/main/workshop/:path',
+      pattern: 'https://github.com/roelantvos/spec-kit-workshop/edit/main/workshop/:path',
       text: 'Edit this page on GitHub'
     },
 

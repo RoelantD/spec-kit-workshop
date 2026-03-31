@@ -111,6 +111,35 @@ Git branching, CI/CD, development environment
 
 ---
 
+## Constitutional Compliance
+
+Before generating your plan, `/speckit.plan` automatically reads your `.specify/memory/constitution.md` to ensure the technical plan aligns with your project's governing principles. This means:
+
+- Architectural choices respect your defined principles
+- Technology choices align with organizational standards
+- Complexity gates (Articles VII & VIII) are enforced — no over-engineering
+- Testing strategy follows your constitution's requirements
+
+If you haven't run `/speckit.constitution` yet, go back to Chapter 2.
+
+### How `/speckit.plan` Enforces Your Constitution
+
+`/speckit.plan` automatically checks constitutional compliance. The plan template enforces gates that keep you honest:
+
+| Gate | What It Checks |
+|------|----------------|
+| **Simplicity Gate** | Are you using ≤3 projects? No future-proofing? |
+| **Anti-Abstraction Gate** | Using framework directly? Single model representation? |
+| **Integration-First Gate** | Contracts defined? Contract tests written? |
+
+Your constitution lives in `.specify/memory/constitution.md`. The planning command reads it and flags any proposed architectural choices that violate your principles. This is the mechanism that keeps plans lean and aligned with your team's standards—not just AI preference.
+
+::: tip Run `/speckit.clarify` First
+If there are ambiguities in your specification, run `/speckit.clarify` before planning. It does structured, coverage-based questioning to surface gaps—reducing rework later when those gaps would have shown up as missing plan sections.
+:::
+
+---
+
 ## Using the `/speckit.plan` Command
 
 Let's create your technical plan!
@@ -967,6 +996,43 @@ git commit -m "Add technical implementation plan"
 
 ---
 
+## Step 5: Validate Your Plan
+
+After generating your plan, validate it before moving to tasks:
+
+- Ask your AI agent to audit the implementation plan: "Go through the implementation plan and check for missing pieces, unclear sequences, or gaps in the implementation details."
+- Check for over-engineering (your agent can be over-eager) — ask it to review against the constitution
+- Verify the `research.md` document recommends the right tech stack
+- For rapidly-changing tech stacks, ask the agent to research specific versions
+- Once validated, check off the plan's Review & Acceptance Checklist
+- Optional: Create a pull request from your feature branch to main for tracking
+
+### Ask Your AI Agent to Audit
+
+Paste this prompt to your AI agent:
+
+```
+Go through the implementation plan and determine whether there is a sequence of tasks
+that are obvious from reading this. Check if there are references to the appropriate
+places in the implementation details.
+```
+
+This catches problems like:
+- Sections that describe components with no clear build sequence
+- References to files or interfaces that are never defined
+- Dependencies mentioned in prose but not in any task-shaped structure
+
+### Validate the Acceptance Checklist
+
+Your plan should include an acceptance checklist. Review it now, before proceeding to tasks:
+- Is every checklist item objectively verifiable?
+- Does each item map to something in the spec?
+- Are there spec requirements that have no corresponding checklist item?
+
+Fix gaps here—it is far cheaper to patch a plan than to discover a missing feature mid-implementation.
+
+---
+
 ## Validation Checklist
 
 Before moving to the Tasks phase:
@@ -1003,7 +1069,7 @@ Congratulations! You've completed the Plan phase. You now have:
 Your technical plan connects the "what" (specification) to the "how to execute" (tasks). Everything is now in place to break this down into implementable work.
 
 ::: info Next Up: Task Breakdown
-In Chapter 5, we'll use this technical plan to create a detailed task list. Each task will be small, focused, and implementable.
+In Chapter 5, we'll use this technical plan to create a detailed task list. Each task will be small, focused, and implementable. Optionally, you can run `/speckit.analyze` after generating tasks to perform a cross-artifact consistency check before moving to `/speckit.implement`.
 :::
 
 ---
@@ -1044,11 +1110,13 @@ For a learning workshop? No. Pick a few key practices (testing, security basics)
 When ready, we'll break this plan into actionable tasks!
 
 ::: tip Ready to Break It Down?
-Continue to [Chapter 5: The Tasks Phase](./05-tasks-phase.md) →
+Continue to [Chapter 5: The Tasks Phase](./05-tasks-phase) →
+
+After generating your tasks in Chapter 5, consider running `/speckit.analyze` as an optional preflight check before proceeding to `/speckit.implement`.
 :::
 
 ---
 
-**Next**: [Chapter 5: The Tasks Phase →](./05-tasks-phase.md)
+**Next**: [Chapter 5: The Tasks Phase →](./05-tasks-phase)
 
-**Previous**: [← Chapter 3: The Specify Phase](./03-specify-phase.md)
+**Previous**: [← Chapter 3: The Specify Phase](./03-specify-phase)

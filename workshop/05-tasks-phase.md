@@ -71,7 +71,7 @@ Good tasks are:
 
 **Description**: Brief explanation of what needs to be built
 
-**Dependencies**: 
+**Dependencies**:
 - TASK-000 (or "None")
 
 **Acceptance Criteria**:
@@ -87,6 +87,17 @@ Good tasks are:
 
 **Related Specification**: Section reference
 ```
+
+### Parallel Execution Markers
+
+Tasks now use `[P]` markers to identify tasks that can be executed in parallel. When you see `[P]` on a task, it means the task has no blocking dependencies on other currently-pending tasks and can safely run concurrently with other `[P]`-marked tasks at the same phase.
+
+```markdown
+## TASK-003: Create Local Storage Manager [P]
+## TASK-004: Create Weather API Service [P]
+```
+
+Both of these are independent foundation tasks—`[P]` tells you (and `/speckit.implement`) that they can be worked on at the same time. Tasks without `[P]` must wait for their listed dependencies.
 
 ---
 
@@ -152,9 +163,20 @@ weather data from OpenWeather API.
 
 ---
 
-## Using the `/tasks` Command
+## Using the `/speckit.tasks` Command
 
 Let's generate your task list!
+
+### What `/speckit.tasks` Reads and Writes
+
+The `/speckit.tasks` command reads the following artifacts from your feature's spec directory:
+
+- **`plan.md`** (required) — the primary input; tasks are derived from this
+- **`data-model.md`** (if present) — used to generate accurate data-layer tasks
+- **`contracts/`** (if present) — ensures integration tasks align with defined contracts
+- **`research.md`** (if present) — informs technology-specific task details
+
+Tasks are written to **`tasks.md`** in your feature's spec directory. Independent tasks are marked with `[P]` to indicate they are safe for parallel execution. The output is structured and ready for `/speckit.implement` to pick up and execute.
 
 ### Step 1: Ensure Prerequisites
 
@@ -165,7 +187,7 @@ Make sure you have:
 
 ### Step 2: Craft Your Tasks Prompt
 
-The `/tasks` command reads your spec and plan to generate tasks. Your prompt should guide the granularity and focus.
+The `/speckit.tasks` command reads your spec and plan to generate tasks. Your prompt should guide the granularity and focus.
 
 #### Basic Tasks Prompt
 
@@ -219,7 +241,7 @@ EXPLICITLY EXCLUDE FROM v1:
 Please organize tasks into logical phases:
 1. Foundation (API setup, data models)
 2. Business Logic (task operations)
-3. CLI Interface (commands, formatting)
+3. UI Components (commands, formatting)
 4. Testing & Polish (tests, docs, error handling)
 ```
 
@@ -235,6 +257,29 @@ If the AI generates tasks that are too large, ask it to break them down further:
 2. Paste your tasks prompt
 3. Press Enter
 4. Wait for generation (30-60 seconds)
+
+---
+
+## Optional: Cross-Artifact Analysis with `/speckit.analyze`
+
+Before handing off to `/speckit.implement`, you can run an optional but powerful analysis step:
+
+```
+/speckit.analyze
+```
+
+This command:
+
+- Checks consistency across all artifacts (spec, plan, tasks, contracts, data models)
+- Identifies gaps or contradictions between documents
+- Ensures your tasks fully cover the specification
+- Flags any over-engineered or under-specified areas
+
+Run this after `/speckit.tasks` and before `/speckit.implement` to catch issues before implementation begins.
+
+::: tip
+Think of `/speckit.analyze` as a "preflight check" for your implementation. It takes a few minutes but can save hours of rework.
+:::
 
 ---
 
@@ -689,40 +734,6 @@ Let's see what a good task breakdown looks like.
 
 ## Organizing Your Tasks
 
-**Acceptance Criteria**:
-- [ ] README includes: installation, quick start, all commands
-- [ ] Each command has usage examples
-- [ ] Troubleshooting section
-- [ ] Contributing guidelines
-- [ ] License file (MIT)
-- [ ] All public functions have docstrings
-- [ ] Architecture overview in docs/
-
-**Component**: Documentation  
-**Complexity**: Medium  
-**Estimated Time**: 2 hours
-
----
-
-## Organizing Your Tasks
-
-Once you have your task list, organize it for efficient execution.
-
-## Summary
-
-**Total Tasks**: 23  
-**Estimated Total Time**: 30-35 hours  
-**MVP Complete After**: Task 18  
-**Polish Complete After**: Task 23  
-
-**Critical Path**: TASK-001 → TASK-004 → TASK-006 → TASK-008 → TASK-013 → TASK-014
-
-:::
-
----
-
-## Organizing Your Tasks
-
 Once you have your task list, organize it for efficient execution.
 
 ### Task Dependencies
@@ -861,7 +872,7 @@ You now have everything needed to start implementation:
 All that's left is to execute!
 
 ::: info Next Up: Implementation
-In Chapter 6, we'll start implementing tasks with your AI coding agent. This is where your project comes to life!
+Before moving to Chapter 6, optionally run `/speckit.analyze` to perform a cross-artifact consistency check across your spec, plan, tasks, contracts, and data models. Once satisfied, use `/speckit.implement` to execute the task list. Chapter 6 covers the full implementation phase.
 :::
 
 ---
@@ -876,11 +887,11 @@ In Chapter 6, we'll start implementing tasks with your AI coding agent. This is 
 When ready, let's start building!
 
 ::: tip Ready to Code?
-Continue to [Chapter 6: The Implementation Phase](./06-implement-phase.md) →
+Optionally run `/speckit.analyze` first for a preflight consistency check, then continue to [Chapter 6: The Implementation Phase](./06-implement-phase) → where you'll use `/speckit.implement` to execute your task list.
 :::
 
 ---
 
-**Next**: [Chapter 6: The Implementation Phase →](./06-implement-phase.md)
+**Next**: [Chapter 6: The Implementation Phase →](./06-implement-phase)
 
-**Previous**: [← Chapter 4: The Plan Phase](./04-plan-phase.md)
+**Previous**: [← Chapter 4: The Plan Phase](./04-plan-phase)

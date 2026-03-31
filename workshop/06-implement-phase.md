@@ -18,6 +18,46 @@ By the end of this chapter, you will:
 
 ---
 
+## Using `/speckit.implement`
+
+The `/speckit.implement` command is the primary way to execute your task list. It:
+
+- Validates that all prerequisites are in place (constitution, spec, plan, and tasks)
+- Parses the task breakdown from `tasks.md`
+- Executes tasks in the correct order, respecting dependencies and parallel execution markers `[P]`
+- Follows the TDD approach defined in your task plan
+- Provides progress updates and handles errors appropriately
+
+Simply run:
+
+```
+/speckit.implement
+```
+
+**What it does in detail:**
+
+1. **Validates prerequisites** — Confirms that `constitution.md`, `spec.md`, `plan.md`, and `tasks.md` are all present before touching any code.
+2. **Parses your task list** — Reads `tasks.md` and builds an ordered execution plan, respecting dependencies and `[P]` parallel markers.
+3. **Executes in correct order** — Foundation tasks first, integration tasks after. Tasks marked `[P]` run concurrently where possible.
+4. **Follows your TDD approach** — Implements tests alongside (or before) production code, as defined in your task plan.
+5. **Provides progress updates** — Reports which task is active and marks each one complete as it finishes.
+
+After implementation, test the application and resolve any runtime errors. Copy browser console errors back to your AI agent for resolution.
+
+::: warning Important
+The AI agent will execute local CLI commands (such as dotnet, npm, python, etc.) — make sure you have the required tools installed on your machine.
+:::
+
+::: warning After Implementation: Check Browser Console Errors
+CLI output won't surface every runtime error. After implementation completes, open the application in your browser (or run it locally) and check the browser console for errors. Paste any errors you find back to your AI agent so they can be resolved.
+:::
+
+---
+
+## Your Role During Implementation
+
+Even when using `/speckit.implement`, you remain the reviewer. The AI executes—you validate.
+
 ## Understanding Implementation with AI
 
 ### Your Role vs. AI's Role
@@ -43,7 +83,19 @@ AI is your **implementation partner**.
 
 ## The Implementation Workflow
 
-Here's the process you'll follow for each task:
+The recommended workflow:
+
+- **Step 0:** Ensure prerequisites — confirm that your constitution, spec, plan, and tasks are all complete before starting implementation.
+- **Step 1:** Run `/speckit.implement` (or work task-by-task manually — see below).
+- **Step 2:** Review the generated changes and validate they match your spec and plan.
+- **Step 3:** Run tests and check for runtime errors.
+- **Step 4:** Iterate on any failures or gaps until all acceptance criteria are met.
+
+---
+
+## Manual Implementation (Task by Task)
+
+When you want more control — or want to implement selectively — you can work through tasks one at a time. This is also useful for learning the workflow or debugging a specific task.
 
 ### Step 1: Select Next Task
 
@@ -116,13 +168,13 @@ The tests are failing because the enum doesn't have a __str__ method.
 Please add that so we can print human-readable status values.
 ```
 
-### Stepsrc/utils/storage.js
-git commit -m "feat: implement TASK-003 - Local Storage Manager
+### Step 8: Commit Your Work
+
 Once acceptance criteria are met:
 
 ```powershell
-git add core/task.py tests/test_core/test_task.py
-git commit -m "feat: implement TASK-003 - Task Status Enum"
+git add src/utils/storage.js tests/utils/storage.test.js
+git commit -m "feat: implement TASK-003 - Local Storage Manager"
 ```
 
 ---
@@ -288,7 +340,7 @@ This doesn't handle several edge cases:
 Please add validation and error handling.
 ```
 
-###Issue 3: Incomplete Tests
+### Issue 3: Incomplete Tests
 
 **AI generates:**
 ```javascript
@@ -677,10 +729,6 @@ In `specs/tasks.md`:
 **Status**: ✅ COMPLETE
 **Completed**: 2026-02-11
 
-### TASK-003: Local Storage Manager
-**Status**: ✅ COMPLETE
-**Completed**: 2026-02-11
-
 ### TASK-004: Weather Display Component
 
 ---
@@ -803,11 +851,11 @@ Take stock of your progress:
 ::: tip Keep Going!
 After the workshop, continue implementing tasks at your own pace. You have all the tools and knowledge you need!
 
-Continue to [Chapter 7: Best Practices](./07-best-practices.md) →
+Continue to [Chapter 7: Best Practices](./07-best-practices) →
 :::
 
 ---
 
-**Next**: [Chapter 7: Best Practices & Advanced Topics](./07-best-practices.md) →
+**Next**: [Chapter 7: Best Practices & Advanced Topics](./07-best-practices) →
 
-**Previous**: [← Chapter 5: The Tasks Phase](./05-tasks-phase.md)
+**Previous**: [← Chapter 5: The Tasks Phase](./05-tasks-phase)

@@ -17,7 +17,7 @@ By the end of this chapter, you will:
 - ✅ Validate your spec is ready for the planning phase
 
 ::: info Advanced: About Prompt Files
-The `/speckit.specify` command is defined in `.github/prompts/speckit.specify.prompt.md`. 
+The `/speckit.specify` command is defined in your agent-specific prompts folder installed by `specify init` (e.g., `.github/copilot-prompts/` for Copilot, `.claude/commands/` for Claude Code).
 
 **For this workshop**, you'll use the default prompt files as-is and focus on crafting great user prompts.
 
@@ -398,22 +398,26 @@ After reviewing your specification, you'll likely find areas that need clarifica
 
 ### Use `/speckit.clarify` for Structured Clarification
 
-The **recommended approach** is to use `/speckit.clarify` to systematically identify and resolve underspecified areas:
+The **recommended approach** is to use `/speckit.clarify` to systematically identify and resolve underspecified areas before moving to planning:
 
 ```
 /speckit.clarify
 ```
 
-This command will:
+No arguments are needed — the command reads your current spec and generates sequential, targeted questions. This command will:
 - Ask sequential, coverage-based questions about unclear aspects
 - Help you think through edge cases you might have missed
 - Record answers in a **Clarifications** section of your spec
 - Ensure comprehensive requirements before you move to planning
 
-::: tip When to Use `/speckit.clarify`
-Use `/speckit.clarify` **before creating your technical plan** (`/speckit.plan`). This reduces rework downstream by catching ambiguities early.
+::: info Formerly `/quizme`
+`/speckit.clarify` replaces the older `/quizme` command from earlier versions of Spec Kit. If you see references to `/quizme` in older documentation or tutorials, use `/speckit.clarify` instead.
+:::
 
-If you're doing a quick spike or exploratory prototype, you can skip this step - just make that intention explicit.
+::: tip Run `/speckit.clarify` before `/speckit.plan` to reduce rework downstream
+Catching ambiguities at the spec stage is far cheaper than discovering them mid-implementation. Even a single clarification session can prevent significant rework in the plan and task phases.
+
+If you're doing a quick spike or exploratory prototype, you can skip this step — just make that intention explicit.
 :::
 
 **Example clarification session:**
@@ -857,8 +861,8 @@ Congratulations! You've completed the Specify phase. You now have:
 
 Your specification is now the **source of truth** for your feature. Everything that follows—the technical plan (next!), task breakdown, and implementation—will reference this document.
 
-::: info Next Up: Getting Technical
-In Chapter 4, we'll use `/speckit.plan` to translate this user-focused specification into a **technical implementation plan**. That's where we'll make decisions about technologies, architecture, and implementation strategy.
+::: info Next Up: Clarify, Then Get Technical
+Before moving to Chapter 4, make sure you have run `/speckit.clarify` to resolve any ambiguities in your spec. Then in Chapter 4 we'll use `/speckit.plan` to translate your user-focused specification into a **technical implementation plan** — that's where we'll make decisions about technologies, architecture, and implementation strategy.
 :::
 
 ---
@@ -868,14 +872,15 @@ In Chapter 4, we'll use `/speckit.plan` to translate this user-focused specifica
 Take a moment to:
 
 1. **Review your specification** at `specs/001-your-feature/spec.md`
-2. **Check your feature branch** with `git branch` (you should see `* 001-your-feature`)
-3. **Feel proud**—you've created a solid foundation!
-4. **Take a 5-minute break**
+2. **Run `/speckit.clarify`** to catch any ambiguities before planning
+3. **Check your feature branch** with `git branch` (you should see `* 001-your-feature`)
+4. **Feel proud**—you've created a solid foundation!
+5. **Take a 5-minute break**
 
 When you return, we'll use `/speckit.plan` to add technical details.
 
 ::: tip Ready for Technical Planning?
-Continue to [Chapter 4: The Plan Phase](./04-plan-phase.md) →
+Once you have run `/speckit.clarify` and your spec feels solid, continue to [Chapter 4: The Plan Phase](./04-plan-phase) →
 :::
 
 ---
@@ -895,6 +900,6 @@ The more you practice writing detailed prompts for `/speckit.specify`, the bette
 
 ---
 
-**Next**: [Chapter 4: The Plan Phase →](./04-plan-phase.md)
+**Next**: [Chapter 4: The Plan Phase →](./04-plan-phase)
 
-**Previous**: [← Chapter 2: Setup & Prerequisites](./02-setup-prerequisites.md)
+**Previous**: [← Chapter 2: The Constitution Phase](./02-constitution-phase)
