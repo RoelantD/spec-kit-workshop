@@ -2,7 +2,7 @@
 
 A hands-on workshop (60–90 min) exploring **spec-driven development** with [GitHub's Spec Kit](https://github.com/github/spec-kit) and AI coding agents. You'll learn how to write precise, structured specifications and use them to guide AI agents — like GitHub Copilot or Claude Code — through a complete feature implementation.
 
-[![Open Workshop Site](https://img.shields.io/badge/Workshop%20Site-Live-blue?style=for-the-badge)](https://roelantvos.github.io/spec-kit-workshop/)
+[![Open Workshop Site](https://img.shields.io/badge/Workshop%20Site-Live-blue?style=for-the-badge)](https://roelantd.github.io/spec-kit-workshop/)
 
 ---
 
@@ -80,7 +80,7 @@ Use these commands in your AI agent during the workshop:
 
 ## Links
 
-- [Live Workshop Site](https://roelantvos.github.io/spec-kit-workshop/)
+- [Live Workshop Site](https://roelantd.github.io/spec-kit-workshop/)
 - [GitHub Spec Kit](https://github.com/github/spec-kit)
 - [Spec-Driven Development Guide](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 

@@ -14,8 +14,8 @@ export default defineConfig({
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:title', content: 'Spec-Driven Development Workshop' }],
     ['meta', { property: 'og:site_name', content: 'SDD Workshop' }],
-    ['meta', { property: 'og:image', content: 'https://roelantvos.github.io/spec-kit-workshop/og-image.png' }],
-    ['meta', { property: 'og:url', content: 'https://roelantvos.github.io/spec-kit-workshop/' }],
+    ['meta', { property: 'og:image', content: 'https://roelantd.github.io/spec-kit-workshop/og-image.png' }],
+    ['meta', { property: 'og:url', content: 'https://roelantd.github.io/spec-kit-workshop/' }],
   ],
 
   themeConfig: {
@@ -168,7 +168,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/roelantvos/spec-kit-workshop/edit/main/workshop/:path',
+      pattern: 'https://github.com/RoelantD/spec-kit-workshop/edit/main/workshop/:path',
       text: 'Edit this page on GitHub'
     },
 
