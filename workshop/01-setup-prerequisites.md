@@ -277,55 +277,48 @@ The agent-specific slash command files are placed in the appropriate location fo
 
 Now for the fun part — deciding what to build!
 
-### Project Requirements
+### Bring Your Own Use Case (Strongly Encouraged!)
 
-For this workshop, choose something that:
-- ✅ Can be completed in 60-90 minutes
-- ✅ Has clear user needs
-- ✅ Has 3-5 core features (not too simple, not too complex)
-- ✅ Interests you personally
+::: tip Use something real
+The best way to learn spec-driven development is to apply it to a problem you actually care about. Think of something you've been wanting to build — a side project, a tool you keep meaning to write, something that would make your own work easier.
 
-### Suggested Projects
+Your own idea will keep you more engaged and give the exercises more meaning. The SDD workflow works the same regardless of what you're building.
+:::
 
-#### 1. Weather Dashboard
-**What**: Simple web app showing weather for multiple cities
-**Features**: Display current weather, 5-day forecast, add/remove cities, visual icons
-**Great for**: API integration, frontend basics, data visualization, responsive design
+**A good workshop project:**
+- ✅ Solves a problem you actually have (or find interesting)
+- ✅ Has 3–5 core features — not too simple, not too complex
+- ✅ Can be scoped to 60–90 minutes
+- ✅ Has clear users and clear goals
 
-#### 2. Task Management CLI Tool
-**What**: Command-line tool to manage your daily tasks
-**Features**: Add tasks, list tasks, mark complete, set priorities
-**Great for**: Learning CRUD operations, file I/O, CLI design
+**Ideas to spark your thinking:**
+- A CLI tool you wish existed for your daily workflow
+- A small web app or dashboard you keep opening other tabs for
+- A script or automation that you currently do manually
+- A personal tracker (habits, reading, expenses, workouts…)
+- Something you've started before but never finished
 
-#### 3. Markdown Blog Generator
-**What**: Static site generator for markdown blog posts
-**Features**: Parse markdown, generate HTML, create index, styling
-**Great for**: File processing, templates, static site generation
+If you have an idea, go with it. You can fill in the planning box below and move on.
 
-#### 4. Personal Finance Tracker
-**What**: Track income and expenses
-**Features**: Add transactions, categorize, view totals, simple reports
-**Great for**: Data modeling, calculations, basic reporting
+---
 
-#### 5. Reading List Manager
-**What**: Track books you want to read and have read
-**Features**: Add books, mark as read, rate/review, search/filter
-**Great for**: Data management, search functionality, user preferences
+### No Idea? Use the Fallback: Weather Dashboard
 
-#### 6. Habit Tracker
-**What**: Track daily habits and streaks
-**Features**: Define habits, mark daily completion, view streaks, stats
-**Great for**: Date handling, streak calculations, visualization
+If you'd rather skip the decision and just follow along with a known example, use the **Weather Dashboard** throughout the workshop. All the example prompts, outputs, and walkthroughs in chapters 2–6 use this project, so you'll always have a concrete reference to follow.
 
-### Or Bring Your Own!
+**Weather Dashboard**
+- **What**: A simple web app that shows current weather and forecasts for multiple cities
+- **Users**: Travelers, remote teams, weather enthusiasts — anyone who checks weather for more than one location
+- **Problem**: Checking weather for multiple cities means switching between tabs or apps. One dashboard shows everything at once.
+- **Features**: Current weather per city, 5-day forecast, add/remove cities, weather icons, temperature in °C/°F, persistent city list
+- **Great for**: API integration, frontend basics, data visualization, responsive design
 
-Have another idea? Great! Just make sure it:
-- Solves a problem you actually have
-- Has 3-5 core features
-- Can be scoped to a workshop timeframe
+::: info The workshop uses this example throughout
+Chapters 2–6 all walk through the Weather Dashboard as the example project. Even if you bring your own idea, it's worth skimming these examples — the patterns apply to any project.
+:::
 
 ::: warning Action Required
-Before continuing, decide on your project and write down:
+Before continuing, decide on your project and write it down:
 
 **Project Name**: ________________________
 

@@ -228,6 +228,36 @@ Work through these steps now, with your project from Chapter 1:
 4. Find any principle that doesn't match your intentions and ask your agent to refine it
 5. Save the file — the constitution is now active and will be applied automatically from this point forward
 
+### Using Your Own Project
+
+Describe your project type and the standards that matter to you. For example:
+
+```
+/speckit.constitution Create a constitution for a Python CLI tool.
+Standards: all code must have unit tests with >80% coverage, type hints 
+on all public functions, no raw file I/O outside the storage module, 
+prefer simple solutions over clever abstractions.
+```
+
+### Using the Weather Dashboard (Fallback Example)
+
+If you're following the workshop example, use this prompt:
+
+```
+/speckit.constitution Create a constitution for a client-side web application 
+(Vanilla JavaScript, no framework). 
+
+Standards: 
+- All JavaScript modules must have JSDoc comments on exported functions
+- API keys must never be hardcoded — use environment variables
+- No external JavaScript frameworks (vanilla JS only)
+- Input validation on all user-facing inputs
+- Error handling for all API calls and localStorage operations
+- Prefer readable code over clever one-liners
+- Mobile-first responsive design
+- Accessibility: all interactive elements must be keyboard-navigable
+```
+
 ::: info Keep it simple for the workshop
 For this workshop, a constitution focused on your project type and a few core standards is enough. Don't spend more than 5 minutes on it — you can always refine it later. The goal is to have *something* concrete before you start specifying.
 :::
