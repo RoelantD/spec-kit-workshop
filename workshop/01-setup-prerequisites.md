@@ -194,22 +194,37 @@ If you use Visual Studio Code, these extensions are helpful for editing specs an
 
 ## Step 4: Initialize Your First Project
 
+The command to run depends on whether you are using **Codespaces** or a **local setup**.
+
+### Codespaces path
+
+You are already in the root of your forked repository. Initialize Spec Kit in the current directory:
+
+```bash
+# You are already in the right place — run from the repo root:
+specify init . --ai claude
+specify init . --ai copilot
+specify init . --ai gemini
+
+# Alternative flag syntax:
+specify init --here --ai claude
+```
+
+### Local setup path
+
 Navigate to the directory where you want to create your project, then run `specify init`:
 
 ```bash
 # Navigate to your workspace
 cd ~/workspace   # or wherever you want to create your project
 
-# Initialize with your chosen AI agent:
+# Create a new named project folder:
 specify init my-project --ai claude
 specify init my-project --ai copilot
 specify init my-project --ai gemini
 
-# Or initialize in the current directory:
+# Or initialize in the current directory instead:
 specify init . --ai claude
-
-# Alternative flag syntax:
-specify init --here --ai claude
 ```
 
 ::: warning Project Name Guidelines
@@ -358,11 +373,14 @@ Common issues:
 
 ### Initialize a New Project
 ```bash
-# Persistent install + init
+# Codespaces — run from the repo root:
+specify init . --ai claude
+
+# Local — persistent install + init into a new folder:
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 specify init my-project --ai claude
 
-# One-time (no install)
+# Local — one-time (no install):
 uvx --from git+https://github.com/github/spec-kit.git specify init my-project --ai claude
 ```
 
